@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BlockWorld | Miniature Landmark Building Sets</title>
+
+    <meta name="description"
+        content="Discover BlockWorld miniature building block sets inspired by famous landmarks from around the world.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>BlockWorld</h1>
+            <p class="brand-subtitle">A RarityMart Venture</p>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#cart">🛒 Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+    <section class="hero" id="home">
+
+        <h2>Build the World's Greatest Landmarks</h2>
+
+        <p>
+            Discover miniature architecture from around the world.
+        </p>
+
+        <a href="#products" class="shop-button">Shop Now</a>
+
+    </section>
+
+    <h2 id="products">Our Products</h2>
+
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+
+            <img src="images/willis-tower.jpg" alt="Willis Tower Mini Block Set">
+
+            <h3>Mini Block-World Famous Architecture</h3>
+
+            <p>Willis Tower, Chicago</p>
+
+            <p class="price">₹499</p>
+
+            <button onclick="buyProduct('Willis Tower, Chicago', 499)">
+                Add to Cart
+            </button>
+            <button class="details-button" onclick="showProductDetails(
+        'Willis Tower, Chicago',
+        499,
+        'Build your own miniature version of the iconic Willis Tower.'
+    )">
+                View Details
+            </button>
+
+        </div>
+
+
+        <!-- Product 2 -->
+        <div class="product-card">
+
+            <img src="images/empire-state.jpg" alt="Empire State Building Mini Block Set">
+
+            <h3>Mini Block-World Famous Architecture</h3>
+
+            <p>Empire State Building, New York</p>
+
+            <p class="price">₹549</p>
+
+            <button onclick="buyProduct('Empire State Building, New York', 549)">
+                Add to Cart
+            </button>
+            <button class="details-button" onclick="showProductDetails(
+        'Empire State Building, New York',
+        549,
+        'Recreate one of New York City’s most famous skyscrapers with this detailed miniature block set.'
+    )">
+                View Details
+            </button>
+
+        </div>
+
+
+
+        <!-- Product 3 -->
+        <div class="product-card">
+
+            <img src="images/tokyo-tower.jpg" alt="Tokyo Tower Mini Block Set">
+
+            <h3>Mini Block-World Famous Architecture</h3>
+
+            <p>Tokyo Tower, Tokyo</p>
+
+            <p class="price">₹599</p>
+
+            <button onclick="buyProduct('Tokyo Tower, Tokyo', 599)">
+                Add to Cart
+            </button>
+            <button class="details-button" onclick="showProductDetails(
+        'Tokyo Tower, Tokyo',
+        599,
+        'Build a miniature version of Tokyo Tower, one of Japan’s most recognizable landmarks.'
+    )">
+                View Details
+            </button>
+
+        </div>
+
+    </div>
+    <section class="cart" id="cart">
+
+        <h2>Shopping Cart</h2>
+
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <h3>Total: ₹<span id="cart-total">0</span></h3>
+
+        <button class="checkout-button" onclick="openCheckout()">
+            Proceed to Checkout
+        </button>
+
+        <button class="clear-cart" onclick="clearCart()">
+            Clear Cart
+        </button>
+
+    </section>
+    <section class="checkout" id="checkout">
+        <h2>Checkout</h2>
+
+        <form id="checkout-form">
+
+            <label for="customer-name">Full Name</label>
+            <input type="text" id="customer-name" placeholder="Enter your full name" required>
+
+            <label for="customer-email">Email</label>
+            <input type="email" id="customer-email" placeholder="Enter your email" required>
+
+            <label for="customer-phone">Phone Number</label>
+            <input type="tel" id="customer-phone" placeholder="Enter your phone number" required>
+
+            <label for="customer-address">Delivery Address</label>
+            <textarea id="customer-address" placeholder="Enter your delivery address" required></textarea>
+
+            <button type="submit">
+                Place Order
+            </button>
+
+        </form>
+        <div id="order-summary">
+            <h3>Order Summary</h3>
+
+            <div id="summary-items"></div>
+
+            <h3>
+                Total: ₹<span id="summary-total">0</span>
+            </h3>
+        </div>
+        <div id="order-confirmation">
+            <h2>✓ Order Confirmed!</h2>
+            <p>Thank you, <span id="confirmation-name"></span>.</p>
+            <p>Your BlockWorld order has been successfully placed.</p>
+            <p>
+                Order Number:
+                <strong id="order-number"></strong>
+            </p>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <h2>About BlockWorld</h2>
+        <p>
+            BlockWorld brings famous landmarks from around the world
+            to your desk through detailed miniature building block sets.
+        </p>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Have a question about our products?</p>
+        <p>Email: support@blockworld.com</p>
+    </section>
+    <footer>
+        <p>&copy; 2026 BlockWorld. All rights reserved.</p>
+        <p>Build the World, One Block at a Time.</p>
+    </footer>
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-button" onclick="closeProductDetails()">&times;</span>
+
+            <h2 id="modal-title"></h2>
+
+            <p id="modal-description"></p>
+
+            <p class="price">
+                ₹<span id="modal-price"></span>
+            </p>
+
+            <div class="modal-quantity">
+                <label for="modal-quantity">Quantity:</label>
+
+                <input type="number" id="modal-quantity" value="1" min="1" max="10">
+            </div>
+
+            <button onclick="addModalProductToCart()">
+                Add to Cart
+            </button>
+
+        </div>
+    </div>
+    <div id="cart-notification">
+        ✓ Added to cart
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
