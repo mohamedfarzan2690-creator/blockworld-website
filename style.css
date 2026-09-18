@@ -73,8 +73,18 @@ nav a:hover {
 
 .hero {
     text-align: center;
-    padding: 80px 20px;
-    background-color: #eeeeee;
+    padding: 120px 20px;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)),
+        url("images/hero-store.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
 }
 
 .hero h2 {
